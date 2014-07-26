@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="images/favicon.png" />
+<title>Stomach cancer gene visualization</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="stylesheets/graph_style.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />   
+    <link rel="stylesheet" type="text/css" href="stylesheets/matrix_svg.css">
+    
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/underscore.js"></script> 
+<script src="csv/matrix/var_genes.js"></script>
+<script src="graph/graph_matrix.js"></script>
+
+  </head>  
+
+  
+<body>
+<div id="tooltip"></div>
+<header>
+    <img src="images/dna_header.png" style="display:bock-inline; margin-top:-41px;" />
+      <div class="inner" style="display:block-inline; margin-top:-340px;">
+        <h1>Stomach cancer gene visualization</h1>
+        <h2>Final project of "Information Visualization" course</h2>
+        <a href="index.html" class="button" id="buttonDataset"><small>the</small>dataset</a>
+        <a href="credits.html" class="button" id="buttonCredits"><small>about</small>credits</a>
+        <a href="visualization1.html" class="button" id="buttonVis1"><small>visualization</small>#1</a>
+        <a href="visualization2.html" class="button" id="buttonVis2"><small>visualization</small>#2</a>
+        <a href="visualization3.html" class="button" id="buttonVis3"><small>visualization</small>#3</a>
+        <a href="visualization4.html" class="button" id="buttonVis4"><small>visualization</small>#4</a>
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          <h3><a name="anchor1"><img src="images/img_chapter.png" class="img_chapter"/>Visualization #3</a></h3>
+            <br/>
+            <p>
+            For more details see the original WEKA output <a href="doc/tree_J48_stomach" target="_blank">here</a>. 
+            </p>
+            
+            <p id="weka_rule">
+            ESM1|11082_calculated <b>&lt;= 0.2558</b><br />
+            |&nbsp;&nbsp;&nbsp;&nbsp;RNFT2|84900_calculated <b>&lt;= 0.4895: <font color="#0000FF">Normal</font></b> (34.0/1.0)<br />
+            |&nbsp;&nbsp;&nbsp;&nbsp;RNFT2|84900_calculated <b>&gt; 0.4895: <font color="#ff0000">Tumoral</font></b> (5.0)<br />
+            ESM1|11082_calculated <b>&gt; 0.2558: <font color="#FF0000">Tumoral</font></b> (232.0)
+             </p>
+            <p style="margin:25px 0px 0px 0px;">Cross-validation change</p>
+			<div id="sliderCV" class="slider_XY"></div><div id="slider_text_cv" class="slider_text_xy"></div>
+           
+           
+
+            <center>
+			<div id="wrapper">
+			<div id="chart">
+			</div>       
+		</div>
+<br/>
+          </center>
+            <p id="pearsonX" style="margin:0px 0px 0px 0px;">Pearson correlation with </p>
+<div id="sliderX" class="slider_XY" >X axis</div><div id="slider_text_x" class="slider_text_xy" ></div> 
+<p id="pearsonY" style="margin:25px 0px 0px 0px;">Pearson correlation with </p>
+<div id="sliderY" class="slider_XY">Y axis</div><div id="slider_text_y" class="slider_text_xy"></div>
+<a href="" id="reset" style="width: 400px; display:block; position:relative; float:left;">Reset view</a>
+        </section> 
+
+        <aside id="sidebar">
+
+          <ul>
+            <li><a href="#anchor1">Visualization #3</a></li>
+
+          </ul>
+          
+        </aside>
+      </div>
+    </div>
+
+<div style="text-align: center">
+  <footer>
+    <span style="font-weight: bold;">Stefano Calcaterra, Federico Mione - Information Visualization Final Project, A.A. 2013-2014</span><br/>
+
+  </footer>
+</div>
+
+
+  <script>
+$(function() {
+  $("#sliderX").slider({
+	value: 0,
+	min: 0,
+	max: 10,
+	step: 1,
+	animate: true,
+	slide: function(event, ui) {
+		//console.log(ui.value);
+		switchXAxis(ui.value);
+	}
+	});
+	
+	$("#sliderY").slider({
+	value: 0,
+	min: 0,
+	max: 10,
+	step: 1,
+	animate: true,
+	slide: function(event, ui) {
+		//console.log(ui.value);
+		switchYAxis(ui.value);
+	}
+	});
+	
+	$("#sliderCV").slider({
+	value: 0,
+	min: 0,
+	max: 3,
+	step: 1,
+	animate: true,
+	slide: function(event, ui) {
+		//console.log(ui.value);
+		switchRule(ui.value);
+	}
+	});
+});
+
+
+  </script>
+
+
+</body>
+</html>

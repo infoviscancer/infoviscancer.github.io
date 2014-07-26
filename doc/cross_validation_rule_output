@@ -1,0 +1,221 @@
+15:29:35 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 1
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.2558
+|   TBPL2|387332_calculated <= 0.0088
+|   |   LCE1D|353134_calculated <= 0.0373: Normal  (29.0)
+|   |   LCE1D|353134_calculated > 0.0373: Tumoral  (2.0)
+|   TBPL2|387332_calculated > 0.0088: Tumoral  (4.0)
+ESM1|11082_calculated > 0.2558: Tumoral  (208.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+15:29:35 - Model: J482
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 2
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.251
+|   JA611272|?|1of2_calculated <= 0.0628: Normal  (30.0/1.0)
+|   JA611272|?|1of2_calculated > 0.0628: Tumoral  (2.0)
+ESM1|11082_calculated > 0.251: Tumoral  (212.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+15:29:42 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 4
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.2558
+|   RNFT2|84900_calculated <= 0.4895: Normal  (31.0/1.0)
+|   RNFT2|84900_calculated > 0.4895: Tumoral  (5.0)
+ESM1|11082_calculated > 0.2558: Tumoral  (208.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+15:29:46 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 3
+
+J48 pruned tree
+------------------
+
+MTHFD1L|25902_calculated <= 1.7093: Normal  (28.0/1.0)
+MTHFD1L|25902_calculated > 1.7093
+|   PABPC1L2B|645974_calculated <= 0.0094: Tumoral  (205.0)
+|   PABPC1L2B|645974_calculated > 0.0094
+|   |   AX746871|?|1of2_calculated <= 0.001: Tumoral  (9.0)
+|   |   AX746871|?|1of2_calculated > 0.001: Normal  (2.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	7
+
+
+15:29:49 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 5
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.2558
+|   RNFT2|84900_calculated <= 0.4895: Normal  (31.0/1.0)
+|   RNFT2|84900_calculated > 0.4895: Tumoral  (5.0)
+ESM1|11082_calculated > 0.2558: Tumoral  (208.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+
+15:29:52 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 6
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.2558
+|   RNFT2|84900_calculated <= 0.4895: Normal  (30.0)
+|   RNFT2|84900_calculated > 0.4895: Tumoral  (5.0)
+ESM1|11082_calculated > 0.2558: Tumoral  (209.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+
+15:29:58 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 8
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.2558
+|   MIR4427|100616390_calculated <= 0.3335: Normal  (30.0)
+|   MIR4427|100616390_calculated > 0.3335: Tumoral  (5.0)
+ESM1|11082_calculated > 0.2558: Tumoral  (209.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+
+15:30:00 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 7
+
+J48 pruned tree
+------------------
+
+GABRD|2563_calculated <= 0.237
+|   TBPL2|387332_calculated <= 0.016: Normal  (28.0)
+|   TBPL2|387332_calculated > 0.016: Tumoral  (3.0)
+GABRD|2563_calculated > 0.237
+|   LOC440297|440297|2of3_calculated <= 0.0011: Tumoral  (201.0)
+|   LOC440297|440297|2of3_calculated > 0.0011
+|   |   C10orf96|374355_calculated <= 0.0115: Tumoral  (10.0)
+|   |   C10orf96|374355_calculated > 0.0115: Normal  (2.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+
+15:30:05 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 9
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.2558
+|   SSX1|6756_calculated <= 0.0134: Normal  (31.0/1.0)
+|   SSX1|6756_calculated > 0.0134: Tumoral  (4.0)
+ESM1|11082_calculated > 0.2558: Tumoral  (209.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+
+15:30:06 - Model: J48
+=== Classifier model ===
+
+ Scheme:   J48
+
+Relation: output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.ClassAssigner-Clast
+Training Fold: 10
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.2558
+|   RNFT2|84900_calculated <= 0.4895: Normal  (31.0/1.0)
+|   RNFT2|84900_calculated > 0.4895: Tumoral  (5.0)
+ESM1|11082_calculated > 0.2558: Tumoral  (208.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5

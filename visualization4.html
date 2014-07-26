@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="images/favicon.png" />
+<title>Stomach cancer gene visualization</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="stylesheets/graph_style.css" />
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src='csv/slopegraph/gene_average_10.js'></script>
+<script src='csv/slopegraph/gene_average_50.js'></script>
+<script src='csv/slopegraph/gene_average_100.js'></script>
+<script src='graph/graph_slopegraph.js'></script>
+
+</head>
+
+<body>
+<div id="tooltip"></div>
+<header> <img src="images/dna_header.png" style="display:bock-inline; margin-top:-41px;" />
+  <div class="inner" style="display:block-inline; margin-top:-340px;">
+    <h1>Stomach cancer gene visualization</h1>
+    <h2>Final project of "Information Visualization" course</h2>
+    <a href="index.html" class="button" id="buttonDataset"><small>the</small>dataset</a> 
+    <a href="credits.html" class="button" id="buttonCredits"><small>about</small>credits</a> 
+    <a href="visualization1.html" class="button" id="buttonVis1"><small>visualization</small>#1</a> 
+    <a href="visualization2.html" class="button" id="buttonVis2"><small>visualization</small>#2</a> 
+    <a href="visualization3.html" class="button" id="buttonVis3"><small>visualization</small>#3</a> 
+    <a href="visualization4.html" class="button" id="buttonVis4"><small>visualization</small>#4</a> 
+    </div>
+</header>
+
+<div id="content-wrapper">
+  <div class="inner clearfix">
+    <section id="main-content">
+    
+      <h3><a name="anchor1"><img src="images/img_chapter.png" class="img_chapter"/>Visualization #4</a></h3>
+      <br/>
+      <p>
+      This diagram shows the interaction between normal and tumoral genes. They are sorted in descending order of "average" parameter which is the average value of the specific gene calculated on all instances (in our case an instance is a patient).<br/>
+      It shows clearly if a gene in a class has a corresponding gene or not and its relative position in the descendent scale. If a gene has no corrispondance in the other class, it will appear with "0" as average value in the class where is not contained. <br/>   
+      Passing mouse over a gene name, the line that connect the gene with its corrisponding will be highlighted in red and will be shown name and average value of the selected gene. Passing mouse over a line, this will be highlighted and will shown both the average values of the normal class that tumor.<br/>
+       The sliders got you the possibilities to set the size of the ordered list of genes (each class will have a list) and to zoom the diagram for a better visualization.<br/>
+       An alternative visualization of these datasets can be found <a href="visualization1.html">here</a>. 
+      
+      
+      </p>
+      <div id="slider"></div>
+      <div id="slider_text"></div>
+      <br/>
+      <div id="slider_zoom"></div>
+      <div id="slider_zoom_text"></div>
+      <div id='slopegraph' style="margin-top:50px; display:block; float:left; position:relative;"></div>
+      <script>draw(all_data_10);</script> 
+    </section>
+    <aside id="sidebar">
+      <ul>
+        <li><a href="#anchor1">Visualization #4</a></li>
+      </ul>
+    </aside>
+  </div>
+</div>
+<div style="text-align: center">
+  <footer> <span style="font-weight: bold;">Stefano Calcaterra, Federico Mione - Information Visualization Final Project, A.A. 2013-2014</span><br/>
+  </footer>
+</div>
+<script>
+  
+var num_genes = 0;
+  
+$(function() {
+  $("#slider").slider({
+	value: 10,
+	min: 0,
+	max: 100,
+	step: 50,
+	animate: true,
+	slide: function(event, ui) {
+		console.log(ui.value);
+		setSliderText(ui.value);
+		num_genes = ui.value;
+		setAndDraw(num_genes);
+		
+	}
+	});
+	
+	$("#slider_zoom").slider({
+	value: 500,
+	min: 500,
+	max: 10000,
+	step: 500,
+	animate: true,
+	slide: function(event, ui) {
+		console.log(ui.value);
+		HEIGHT = ui.value; //HEIGHT è una variabile di graph_slopegraph.sj	
+		setSliderZoomText(ui.value);		
+		setAndDraw(num_genes);
+	}
+	});
+	
+});
+
+  
+function setAndDraw(genes) {
+	console.log(genes);
+	var data;
+	if(genes == 0)
+		data = all_data_10;
+	if(genes == 50)
+		data = all_data_50;
+	if(genes == 100)
+		data = all_data_100;
+			
+	num_genes = genes;
+	clear();
+	draw(data);
+	}
+
+function setSliderText(text) {
+	if(text == 0)
+		text = 10;
+	document.getElementById('slider_text').innerHTML = text + ' genes';
+	}
+	
+function setSliderZoomText(text) {
+	document.getElementById('slider_zoom_text').innerHTML = 'Zoom: ' + text;
+	}
+	
+  setSliderText(10);
+  setSliderZoomText(1000);
+  
+</script>
+</body>
+</html>

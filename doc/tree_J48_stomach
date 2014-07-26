@@ -1,0 +1,51 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     output_stomach_completo-weka.filters.unsupervised.attribute.Remove-R2
+Instances:    271
+Attributes:   29701
+[list of attributes omitted]
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+ESM1|11082_calculated <= 0.2558
+|   RNFT2|84900_calculated <= 0.4895: Normal  (34.0/1.0)
+|   RNFT2|84900_calculated > 0.4895: Tumoral  (5.0)
+ESM1|11082_calculated > 0.2558: Tumoral  (232.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Time taken to build model: 2.66 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         256               94.4649 %
+Incorrectly Classified Instances        15                5.5351 %
+Kappa statistic                          0.751 
+Mean absolute error                      0.0567
+Root mean squared error                  0.2323
+Relative absolute error                 26.1994 %
+Root relative squared error             70.9967 %
+Total Number of Instances              271     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.962     0.182      0.974     0.962     0.968      0.894    Tumoral 
+                 0.818     0.038      0.75      0.818     0.783      0.894    Normal 
+Weighted Avg.    0.945     0.164      0.947     0.945     0.946      0.894
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 229   9 |   a = Tumoral 
+   6  27 |   b = Normal 
+

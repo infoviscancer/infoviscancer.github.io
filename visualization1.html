@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="images/favicon.png" />
+<title>Stomach cancer gene visualization</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link type="text/css" rel="stylesheet" href="stylesheets/graph_style.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/underscore.js"></script> 
+    <script src="js/mapper.js"></script>
+    <script src="graph/graph_chord.js"></script> 
+  </head>  
+
+  
+<body>
+<div id="tooltip"></div>
+<header>
+    <img src="images/dna_header.png" style="display:bock-inline; margin-top:-41px;" />
+      <div class="inner" style="display:block-inline; margin-top:-340px;">
+        <h1>Stomach cancer gene visualization</h1>
+        <h2>Final project of "Information Visualization" course</h2>
+        <a href="index.html" class="button" id="buttonDataset"><small>the</small>dataset</a>
+        <a href="credits.html" class="button" id="buttonCredits"><small>about</small>credits</a>
+        <a href="visualization1.html" class="button" id="buttonVis1"><small>visualization</small>#1</a>
+        <a href="visualization2.html" class="button" id="buttonVis2"><small>visualization</small>#2</a>
+        <a href="visualization3.html" class="button" id="buttonVis3"><small>visualization</small>#3</a>
+        <a href="visualization4.html" class="button" id="buttonVis4"><small>visualization</small>#4</a>
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          <h3><a name="anchor1"><img src="images/img_chapter.png" class="img_chapter"/>Visualization #1</a></h3>
+            <br/>
+            <p>
+            This chord diagram shows the interaction between normal and tumoral genes. They are sorted in descending order of "average" parameter which is the average value of the specific gene calculated on all instances (in our case an instance is a patient).<br/>
+            Note that each gene will have an interaction with all the others genes in its class. If the gene is also contained in the other class, it will show an interaction between the gene in normal class and in tumoral class.
+            </p>
+            <center>
+           <p id="loading" style="color:#444444; font-size:18px; margin-top:300px;">Loading...</p>
+           <div id="diagram">
+              
+			<script> draw('csv/chord/matrice_10_class.csv'); </script>
+			</div>     
+            </center>
+<div id="slider"></div>
+<div id="slider_text"></div>
+<div id="slider_class"></div>
+      <div id="slider_class_text"></div>
+    
+      <p style="margin-top:20px;">
+            The sliders got you the possibilities to set the size of the ordered list of genes (each class will have a list) and to show or hide the connections between genes of same class.
+            <br/><br/>
+            For a different visualization of these datasets click <a href="visualization4.html">here</a>.
+            </p>
+      
+        </section> 
+
+        <aside id="sidebar">
+
+          <ul>
+            <li><a href="#anchor1">Visualization #1</a></li>
+
+          </ul>
+          
+        </aside>
+      </div>
+    </div>
+
+<div style="text-align: center">
+  <footer>
+    <span style="font-weight: bold;">Stefano Calcaterra, Federico Mione - Information Visualization Final Project, A.A. 2013-2014</span><br/>
+
+  </footer>
+</div>
+
+
+  <script>
+  
+var show_classe = 1;
+var num_genes = 10;
+  
+  
+$(function() {
+  $("#slider").slider({
+	value: 10,
+	min: 10,
+	max: 50,
+	step: 10,
+	animate: true,
+	slide: function(event, ui) {
+		console.log(ui.value);
+		setSliderText(ui.value);
+		num_genes = ui.value;
+		setAndDraw(show_classe, num_genes);
+		
+	}
+	});
+	
+	$("#slider_class").slider({
+	value: 1,
+	min: 0,
+	max: 1,
+	step: 1,
+	animate: true,
+	slide: function(event, ui) {
+		console.log(ui.value);			
+		setAndDraw(ui.value, num_genes);
+	}
+	});
+	
+});
+
+  
+function setAndDraw(sclasse, num_genes) {
+	var classe;
+	show_classe = sclasse;
+	if(sclasse == 1)
+			classe = 'class';
+		else
+			classe = 'noclass';
+	clear();
+	draw('csv/chord/matrice_'+num_genes+'_'+classe+'.csv');
+	setSliderClassText(classe);
+	}
+
+function setSliderText(text) {
+	document.getElementById('slider_text').innerHTML = text + ' genes';
+	}
+	
+function setSliderClassText(text) {
+	var didascalia;
+	if(text == 'class')
+		didascalia = 'class connection';
+	else
+		didascalia = 'no class connection';
+	document.getElementById('slider_class_text').innerHTML = didascalia;
+	}
+	
+  setSliderText(10);
+  setSliderClassText('class');
+  </script>
+
+
+</body>
+</html>
