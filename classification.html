@@ -19,11 +19,18 @@
 <script src="js/underscore.js"></script> 
     <script src="js/mapper.js"></script>
     <script src="graph/graph_chord.js"></script> 
+    
+    <script language="javascript" type="text/javascript">
+  function resizeIframe(obj, offset) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + offset + 'px';
+  }
+</script>
   </head>  
 
   
 <body>
-
+<a name="anchor0"></a>
+<div id="tooltip"></div>
 <header>
     <img src="images/dna_header.png" style="display:bock-inline; margin-top:-41px;" />
       <div class="inner" style="display:block-inline; margin-top:-340px;">
@@ -33,6 +40,7 @@
         <a href="credits.html" class="button" id="buttonCredits"><small>about</small>credits</a>
         <a href="clustering.html" class="button" id="buttonVis1"><small>visualizzazioni su</small>clustering</a>
         <a href="classification.html" class="button" id="buttonVis2"><small>visualizzazioni su</small>classificazione</a>
+
         
       </div>
     </header>
@@ -40,35 +48,31 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-        
-        <h3><a name="anchor1"><img src="images/img_chapter.png" class="img_chapter"/></span>Credits</a></h3>
-            <br/>
-            <p>
-            Sito e contenuti elaborati e prodotti da Stefano Calcaterra e Federico Mione nell'ambito del progetto finale per l'esame di Visualizzazione delle Informazioni del corso di laurea Magistrale in Ingegneria Informatica (Università 'Roma Tre').<br/><br/>
-            Un ringraziamento speciale al prof. Maurizio Patrignani, al dott. Emanuel Weitschek e alla dott.ssa Giulia Fiscon per la disponibilità dimostrata.
-            </p>
 
-          <h3><a name="anchor2"><img src="images/img_chapter.png" class="img_chapter"/></span>Riferimenti</a></h3>
-            <br/>
-            <p>
+          <h3><a name="anchor1" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #1</a></h3>
+          <a href="visualization5.html" target="_blank" class="fullscreen_button"></a>
             
-            &#8226; TCGA The Cancer Genome Atlas - https://wiki.nci.nih.gov/display/TCGA/The+Cancer+Genome+Atlas<br/><br/>
-&#8226; WEKA: Machine Learning Algorithms in java – Dipartimento di Informatica e Sistemistica Antonio Ruberti, Sapienza Università di Roma<br/><br/>
-&#8226; Machine Learning with WEKA – Eibe Frank, Department of Computer Science, University of Waikato, New Zeland<br/><br/>
-&#8226; Gene expression profile analysis: normalization, clustering and classification - Emanuel Weitschek, Giulia Fiscon, Giovanni Felici, and Paola Bertolazzi, Department of Engineering Roma Tre University, Rome, Italy; Institute of Systems Analysis and Computer Science National Research Council, Rome, Italy; Department of Computer, Control and Management Engineering, Sapienza University, Rome, Italy<br/><br/>
-&#8226; TCGA and GenData, The Cancer Genome Atlas - Emanuel Weitschek, Giulia Fiscon, Fabio Cumbo
-
+            <iframe class="standard_iframe" src="visualization5.html"  onload='javascript:resizeIframe(this, 50);'>
+  			This is an iframe. If you see this, upgrade your browser version!
+			</iframe>
+            <a href="#anchor0">Back on top.</a>
             
-            </p>
- 
-
+            <h3><a name="anchor2" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #2</a></h3>
+            <a href="visualization6.html" target="_blank" class="fullscreen_button"></a>
+            
+            <iframe class="standard_iframe" src="visualization6.html"  onload='javascript:resizeIframe(this, 700);'>
+  			This is an iframe. If you see this, upgrade your browser version!
+			</iframe>
+            <a href="#anchor0">Back on top.</a>
+   
+      
         </section> 
 
         <aside id="sidebar">
 
           <ul>
-            <li><a href="#anchor1">Credits</a></li>
-            <li><a href="#anchor2">Riferimenti</a></li>
+            <li><a href="#anchor1">Visualizzazione #1</a></li>
+<li><a href="#anchor2">Visualizzazione #2</a></li>
 
           </ul>
           
@@ -82,8 +86,6 @@
 
   </footer>
 </div>
-
-
 
 </body>
 </html>

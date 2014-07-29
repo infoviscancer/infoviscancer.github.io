@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="images/favicon.png" />
+<title>Stomach cancer gene visualization</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="stylesheets/graph_style.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="stylesheets/matrix_svg.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/gene_search.js"></script>
+<script src="js/underscore.js"></script>
+<script src="csv/matrix/var_genes.js"></script>
+<script src="graph/graph_matrix.js"></script>
+</head>
+
+<body>
+<div id="tooltip"></div>
+<p style="margin-top:30px;"> For more details see the original WEKA output <a href="doc/tree_J48_stomach" target="_blank">here</a>. <br />
+  <br />
+  ESM1|11082_calculated <b>&lt;= 0.2558</b><br />
+  |&nbsp;&nbsp;&nbsp;&nbsp;RNFT2|84900_calculated <b>&lt;= 0.4895: <font color="#0000FF">Normal</font></b> (34.0/1.0)<br />
+  |&nbsp;&nbsp;&nbsp;&nbsp;RNFT2|84900_calculated <b>&gt; 0.4895: <font color="#ff0000">Tumoral</font></b> (5.0)<br />
+  ESM1|11082_calculated <b>&gt; 0.2558: <font color="#FF0000">Tumoral</font></b> (232.0) </p>
+<center>
+  <div id="wrapper">
+    <div id="chart"> </div>
+  </div>
+  <br/>
+</center>
+<p  style="width:auto; margin:0px 20px 0px 0px; display:inline-block; float:left; position:relative;">Show/hide rule axis: </p>
+<div id="slider_onoff" style="width:30px; display:inline-block; float:left; position:relative; margin:3px 0px 0px 0px;"></div>
+<div id="slider_text_onoff" style="width:auto; display:inline-block; float:left; position:relative; margin:0px 0px 0px 20px;">ON</div>
+<p id="pearsonX" style="margin:20px 0px 0px 0px;">Pearson correlation with </p>
+<div id="sliderX" class="slider_XY" >X axis</div>
+<div id="slider_text_x" class="slider_text_xy" ></div>
+<p id="pearsonY" style="margin:25px 0px 0px 0px;">Pearson correlation with </p>
+<div id="sliderY" class="slider_XY">Y axis</div>
+<div id="slider_text_y" class="slider_text_xy"></div>
+<a href="" id="reset" style="width: 400px; display:block; position:relative; float:left;">Reset view</a> 
+<script>
+$(function() {
+  $("#sliderX").slider({
+	value: 0,
+	min: 0,
+	max: 10,
+	step: 1,
+	animate: true,
+	slide: function(event, ui) {
+		//console.log(ui.value);
+		switchXAxis(ui.value);
+	}
+	});
+	
+	$("#sliderY").slider({
+	value: 0,
+	min: 0,
+	max: 10,
+	step: 1,
+	animate: true,
+	slide: function(event, ui) {
+		//console.log(ui.value);
+		switchYAxis(ui.value);
+	}
+	});
+	
+	$("#slider_onoff").slider({
+	value: 1,
+	min: 0,
+	max: 1,
+	step: 1,
+	animate: true,
+	slide: function(event, ui) {
+		//console.log(ui.value);
+		showHideRangeAxis(ui.value);
+	}
+	});
+
+});
+
+
+  </script>
+</body>
+</html>

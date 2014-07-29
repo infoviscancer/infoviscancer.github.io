@@ -1,5 +1,5 @@
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2,  h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -42,6 +42,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 
 /* LAYOUT STYLES */
 body {
@@ -104,6 +105,8 @@ header h2 {
 #main-content {
   width: 690px;
   float: left;
+  position:relative;
+  display:block;
 }
 
 #main-content img {
@@ -131,12 +134,12 @@ aside#sidebar p.repo-owner a {
 }
 
 a.button {
-  width: 134px;
+  width: 170px;
   height: 58px;
   line-height: 1.2;
   font-size: 23px;
   color: #fff;
-  padding-left: 68px;
+  padding-left: 32px;
   padding-top: 22px;
   font-family: 'Helvetica Neue', Helvetica, Arial, serif; 
 }
@@ -158,26 +161,19 @@ header a:hover.button  {
 }
 
 #buttonDataset {
-	right: 100px;
+	right: 0px;
 }
 #buttonVis1 {
-	right: 100px;
-	margin-top:100px;
+	right: 0px;
+	margin-top:80px;
 }
 #buttonVis2 {
-	right: 100px;
-	margin-top:200px;
+	right: 0px;
+	margin-top:160px;
 }
 #buttonCredits {
-	right: -100px;
-}
-#buttonVis3 {
-	margin-top:100px;
-	right: -100px;
-}
-#buttonVis4 {
-	margin-top:200px;
-	right: -100px;
+	right: 0px;
+	margin-top:240px;
 }
 
 
@@ -344,9 +340,10 @@ h6:before {
 p {
 	width:690px;
 	display:block;
-	position:relative;
+	position:relative; 
 	float:left;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-top: 0px;
 }
  
 a {
@@ -569,12 +566,28 @@ footer a:hover {
 	}
 	
 #diagram {
+	width: 100%;
+  margin-top: 0px;
+  position: relative;
+  display:block;
+  float:left;
+	}
+	
+.slider_wrapper {
+	width: 100%;
+  margin-top: 0px;
+  position: relative;
+  display:block;
+  float:left;
+	}
+	
+#container_diagram {
+	margin-top:10px;
 	position:relative; 
 	float:left; 
 	display:block; 
-	width:600px; 
-	
-	}
+	width:690px;
+}
 	
 .img_chapter {
 	width:30px;
@@ -613,7 +626,6 @@ footer a:hover {
    text-align:center;
    color:#333333;
    text-shadow: 1px 1px #ffffff;
-
 	}
 	
 .slider_text_xy {
@@ -624,3 +636,37 @@ footer a:hover {
 	position:relative;  
 	float: left;
 	}
+	
+.slider_normal {
+	margin-top: 2px;
+	display:block-inline; 
+	width:400px; 
+	position:relative; 
+	float: left;
+	text-align:center;
+   color:#333333;
+   text-shadow: 1px 1px #ffffff;
+	}
+	
+.standard_iframe {
+	width:690px;
+	margin:20px 0px 10px 0px;
+	}
+	
+.fullscreen_button {	
+	display:inline-block; 
+	position:relative; 
+	float:right; 
+	height:40px; 
+	width:40px; 
+	background-image:url(../images/fullscreen_icon.png);
+	}
+	
+.fullscreen_button:hover{	
+	background-image:url(../images/fullscreen_icon.png) ;
+	background-position: right -40px;
+	}
+	
+.anchor {
+	display:inline-block; position:relative; float:left;}	
+	

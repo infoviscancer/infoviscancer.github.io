@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="stylesheet.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130506065400000000" remote="130506065400000000" />
+<file name="stylesheet.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130511290197293957" remote="130511289600000000" />
 <file name="pygment_trac.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130496567400000000" remote="130496567400000000" />
-<file name="print.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130496568000000000" remote="130496568000000000" />
-<file name="slopegraph_style.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130498422268473127" remote="130498422000000000" />
-<file name="graph_style.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130498431000000000" remote="130498431000000000" />
+<file name="print.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130511201082340725" remote="130511200800000000" />
+<file name="graph_style.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130508975400000000" remote="130508975400000000" />
 <file name="matrix_svg.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130504467600000000" remote="130504467600000000" />
 <file name="matrix_style.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130505814600000000" remote="130505814600000000" />
+<file name="tree_style.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130509454800000000" remote="130509454800000000" />
+<file name="chromosome_style.css" server="ftp.villaggiocultura.it/www.villaggiocultura.it/" local="130511162057522282" remote="130511161800000000" />
 </dwsync>

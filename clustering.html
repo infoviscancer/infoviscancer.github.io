@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="images/favicon.png" />
+<title>Stomach cancer gene visualization</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link type="text/css" rel="stylesheet" href="stylesheets/graph_style.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/underscore.js"></script> 
+    <script src="js/mapper.js"></script>
+    <script src="graph/graph_chord.js"></script> 
+    
+    <script language="javascript" type="text/javascript">
+  function resizeIframe(obj, offset) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + offset + 'px';
+  }
+</script>
+  </head>  
+
+  
+<body>
+<a name="anchor0"></a>
+<div id="tooltip"></div>
+<header>
+    <img src="images/dna_header.png" style="display:bock-inline; margin-top:-41px;" />
+      <div class="inner" style="display:block-inline; margin-top:-340px;">
+        <h1>Stomach cancer gene visualization</h1>
+        <h2>Progetto finale per il corso di "Visualizzazione delle Informazioni"</h2>
+        <a href="index.html" class="button" id="buttonDataset"><small>il</small>dataset</a>
+        <a href="credits.html" class="button" id="buttonCredits"><small>about</small>credits</a>
+        <a href="clustering.html" class="button" id="buttonVis1"><small>visualizzazioni su</small>clustering</a>
+        <a href="classification.html" class="button" id="buttonVis2"><small>visualizzazioni su</small>classificazione</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          <h3><a name="anchor1" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #1</a></h3>
+          <a href="visualization1.html" target="_blank" class="fullscreen_button"></a>
+          <br/> <br/> <br/>
+          <p>
+          Il diagramma mostra l'interazione tra geni normali e tumorali ordinati in ordine decrescente dell’ RPKM medio, ovvero il valore medio del gene calcolato su tutte le istanze.<br/>
+Le classi Tumoral e Normal sono distinte in base al colore dei semicerchi che limitano il grafico, rispettivamente nero per i primi e bianco per i secondi.
+          </p>
+            
+            <iframe class="standard_iframe" src="visualization1.html"  onload='javascript:resizeIframe(this,0);'>
+  			This is an iframe. If you see this, upgrade your browser version!
+			</iframe>
+            <br/>
+            <p>
+            Si noti che ogni gene ha una interazione con tutti gli altri geni della sua classe. Inoltre se il gene è contenuto anche nell'altra classe, viene visualizzato un collegamento (quindi un’interazione) tra il gene in classe normale e in classe tumorale.<br/>
+Per mezzo di due sliders è possibile impostare il numero di geni da visualizzare (10, 20, 30, 40 o 50) ed eliminare le sole relazioni intraclasse.<br/><br/>
+I dati di input sono costituiti da due gruppi di 5 file csv, uno per ciascun numero (10, 20, 30, 40 o 50) di geni da visualizzare e un gruppo per ogni tipo di visualizzazione da effettuare (con connessioni intraclasse o meno).
+            </p>
+            
+            <a href="#anchor0">Back on top.</a>
+            <h3><a name="anchor2" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #2</a></h3>
+            <a href="visualization2.html" target="_blank" class="fullscreen_button"></a>
+            <br/> <br/> <br/>
+          <p>
+          Questo diagramma mostra, per ogni gene, i valori medi dell’ RPKM . La visualizzazione segue una struttura a spirale collocando il gene con valore medio più alto al centro del diagramma. <br/>
+Il valore medio dell’RPKM di ogni gene è proporzionale alla superficie della bolla.
+          </p>
+            
+            <iframe class="standard_iframe" src="visualization2.html"  onload='javascript:resizeIframe(this,0);'>
+  			This is an iframe. If you see this, upgrade your browser version!
+			</iframe>
+            <br/>
+            <p>
+            Passando il mouse sopra una bolla, viene mostrato il nome del gene e il valore medio dell’RPKM.<br/>
+            Per mezzo di due sliders è possibile modificare rispettivamente il numero di geni visualizzati (10, 20, 30, 40, 50, 60, 70, 80, 90, 100) e la classe (Normal o Tumoral).<br/><br/>
+            I dati di input sono costituiti da 10 file json per la classe Normal e altrettanti per la classe Tumoral ciascuno contenente i nomi dei geni da visualizzare e il relativo valore di RPKM medio ordinati in ordine descrescente.
+            </p>
+            
+            <a href="#anchor0">Back on top.</a>
+            <h3><a name="anchor3" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #3</a></h3>
+            <a href="visualization3.html" target="_blank" class="fullscreen_button"></a>
+            <br /><br /><br />
+            <p>
+            Il diagramma mostra l'interazione tra geni normali e tumorali ordinati in ordine decrescente dell’ RPKM medio, ovvero il valore medio del gene calcolato su tutte le istanze.
+            </p>         
+            <iframe class="standard_iframe" src="visualization3.html"  onload='javascript:resizeIframe(this,0);'>
+  			This is an iframe. If you see this, upgrade your browser version!
+			</iframe>
+            <br/>
+            <p>
+            Questo diagramma mostra chiaramente se un gene in una classe possiede il corrispondente nell’altra classe e la sua posizione relativa nella scala discendente. Se un gene non ha corrispondenza nell'altra classe sarà comunque presente con valore medio nullo (“0”) nella classe in cui non è contenuto.<br />
+Passando il mouse sopra il nome del gene la linea che collega il gene con il suo corrispondente sarà evidenziata in rosso e verrà visualizzato il nome e il valore medio del gene selezionato. <br />
+Passando il mouse sopra una riga questa verrà evidenziata in rosso e verranno illustrati sia i valori medi della classe normal che della classe tumoral. <br />
+Per mezzo di due sliders si è ottenuta rispettivamente la possibilità di impostare la dimensione della lista ordinata di geni (10, 50 o 100) e di ingrandire il diagramma per una più agevole consultazione.<br /><br />
+I dati di input sono costituiti da tre file json, uno per ciascun numero di geni da visualizzare (10, 50 o 100). Ogni file è composto dai nomi dei primi N geni con RPKM medio più alto seguiti dal relativo valore, sia per la classe Normal che per la classe Tumoral.
+            </p>
+            
+            <a href="#anchor0">Back on top.</a>
+            <h3><a name="anchor4" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #4</a></h3>
+            <a href="visualization4.html" target="_blank" class="fullscreen_button"></a>
+            
+            <iframe class="standard_iframe" src="visualization4.html"  onload='javascript:resizeIframe(this,40);'>
+  			This is an iframe. If you see this, upgrade your browser version!
+			</iframe>
+            <a href="#anchor0">Back on top.</a>
+            
+      
+        </section> 
+
+        <aside id="sidebar">
+
+          <ul>
+            <li><a href="#anchor1">Visualizzazione #1</a></li>
+<li><a href="#anchor2">Visualizzazione #2</a></li>
+<li><a href="#anchor3">Visualizzazione #3</a></li>
+<li><a href="#anchor4">Visualizzazione #4</a></li>
+          </ul>
+          
+        </aside>
+      </div>
+    </div>
+
+<div style="text-align: center">
+  <footer>
+    <span style="font-weight: bold;">Stefano Calcaterra, Federico Mione - Information Visualization Final Project, A.A. 2013-2014</span><br/>
+
+  </footer>
+</div>
+
+</body>
+</html>

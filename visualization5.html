@@ -1,43 +1,58 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-	    <title>Titolo</title>
-	    <link rel="stylesheet" href="stylesheets/matrix_style.css">
-	    <link rel="stylesheet" href="stylesheets/matrix_svg.css">
-        
-        <script src="http://d3js.org/d3.v3.min.js"></script>
-	<script src="js/underscore.js"></script> 
-		<script src="graph/graph_matrix.js"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="images/favicon.png" />
+<title>Stomach cancer gene visualization</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="stylesheets/graph_style.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
 
-	    
-	</head>
+<link rel="stylesheet" href="stylesheets/tree_style.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/gene_search.js"></script>
+<script src="js/underscore.js"></script>
+<script src="csv/matrix/var_genes.js"></script>
 
-	<body>
-		<div id="wrapper">
-			<div id="chart">
-			</div>
+<script src="csv/tree/cross_validation_output.js"></script>
+</head>
 
-			<div id="title">
-				<h1>J48 Tree</h1>
-			</div>
+<body>
+<div id="tooltip"></div>
+<p> For more details see the original WEKA output <a href="doc/cross_validation_rule_output" target="_blank">here</a>.<br/>
+  <br/>
+  Cross-validation fold change </p>
+<div id="sliderCV" class="slider_normal"></div>
+<div id="slider_text_cv" class="slider_text_xy"></div>
+<p id="weka_rule" style="margin-top:20px;"></p>
+<center>
+  <div id="wrapper_tree" style="position:relative; display:block; float:left; width:690px;"> 
+    <script src="graph/graph_tree.js"></script> 
+    <script>drawTree(0);</script> 
+  </div>
+</center>
+<script>
+$(function() {
 
-			<div id="about">
-				<!-- <h4>About</h4> -->
-				<p>Paragrafo.</p>
-			</div>
+	
+	$("#sliderCV").slider({
+	value: 0,
+	min: 0,
+	max: 9,
+	step: 1,
+	animate: true,
+	slide: function(event, ui) {
+		//console.log(ui.value);
+		clearTree();
+		drawTree(ui.value);
+	}
+	});
+});
 
-			<div id="menu">
-			<h2>&uarr; Y axis</h2>
-				<ul id="y-axis-menu"></ul>
-				<h2>&rarr; X axis</h2>
-				<ul id="x-axis-menu"></ul>
-			</div>
-            <a href="" id="reset">Reset view</a>
-		</div>
 
-	<script>draw();</script>
-	 
-	</body>
+  </script>
+</body>
 </html>

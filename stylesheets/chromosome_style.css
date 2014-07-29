@@ -1,0 +1,51 @@
+.bar.positive {
+   fill: black;
+  stroke: #0000ff;
+  }
+
+.bar.negative {
+  fill: black;
+   stroke: #ff0000;
+}
+
+.bar:hover { 
+	cursor: pointer;
+	 }
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+ 
+.a_chr_class {
+	display:inline-block;
+	float:left;
+	position:relative;
+	width:30px;
+	height: 30px;
+	color: #ffffff;
+	font-size:14px;
+	font-weight:bold;
+	margin: 0px 2px 0px 2px;
+	cursor: pointer;
+	text-shadow: 1px 1px #666666;
+	}
+	
+.button_class {
+	display:inline-block;
+	float:left;
+	position:relative;
+	width:22%;
+
+	font-size:14px;
+	font-weight:bold;
+	margin:0px 5px 0px 5px;
+	cursor: pointer;
+	border:#999999 thin solid;
+	}

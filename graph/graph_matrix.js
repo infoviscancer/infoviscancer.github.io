@@ -6,15 +6,14 @@ var normal = 0;
 var tumoral = 0;
 
 
-
 var xRange = crossValidation[0][2];
 var yRange = crossValidation[0][3]; /*Esterno*/
 	var ruleXAxis = crossValidation[0][0] , ruleYAxis = crossValidation[0][1];
 	
   var xAxis = 'RNFT2|84900_calculated', yAxis = 'ESM1|11082_calculated';
+  var showRuleAxis = true;
   
-  
-var switchXAxis, switchYAxis, switchRule;
+var switchXAxis, switchYAxis, showHideRangeAxis;
 
 
 var colors = ["#0000ff" , "#ff0000"];
@@ -286,7 +285,7 @@ chart.append("g")
 					.style("top", function () { return (d3.event.pageY - 100)+"px"})
 					.style("left", function () { return (d3.event.pageX - 100)+"px";})
 	})
-	.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
+	.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") })
 	;
 	
 	//FINE POINT
@@ -369,6 +368,7 @@ chart.append("g")
 	  */
 	  
 	 // Fade in (xRangeAxe)
+	 if(showRuleAxis == true) {
     d3.select('#xRangeAxe')
       .style('opacity', 1)
 	  .transition()
@@ -393,7 +393,7 @@ chart.append("g")
      // .style('opacity', 1)
 	 //.attr('fill', '#ff0000')
 	  ;
-	  
+	 }
 	  var disabled = $( "#sliderX" ).slider( "option", "disabled" );
 	  if(disabled == false) {
 	  document.getElementById('slider_text_x').innerHTML = xAxis;
@@ -471,33 +471,25 @@ switchYAxis = function switchYAxis(param) {
 	  updateZoom();
 	}
  
-switchRule = function switchRule(param) {
-	//oscura gli slider della correlazione se param != 0
-	if (param != 0) {
-		$("#sliderX").slider("disable");
-		$("#sliderY").slider("disable");
+showHideRangeAxis = function showHideRangeAxis(param) {
+
+	 d3.select('#xRangeAxe')
+      .style('opacity', param);
+	 d3.select('#yRangeAxe')
+      .style('opacity', param);
+	
+	
+	var txt;
+	if(param == 0) {
+		txt = 'OFF';
+		showRuleAxis = false;
 	} else {
-		$("#sliderX").slider("enable");
-		$("#sliderY").slider("enable");
-			}
+		txt = 'ON';
+		showRuleAxis = true;
+		}
 	
-	xRange = crossValidation[param][2];
-	yRange = crossValidation[param][3];
-	
-	ruleXAxis = crossValidation[param][0];
-	ruleYAxis = crossValidation[param][1];
-	
-	xAxis = crossValidation[param][0];
-	yAxis = crossValidation[param][1]; 
-	
-	document.getElementById('weka_rule').innerHTML = rule_description[param];
-
-	updateChart();
-	updateMenus();
-	updateZoom();
-	
-	}
-
+document.getElementById('slider_text_onoff').innerHTML = txt;
+}
 
 })
 
