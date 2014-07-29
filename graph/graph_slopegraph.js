@@ -235,19 +235,21 @@ sg.selectAll('.left_labels')
 		.attr('font-size', 10)
 		.attr('font-weight', 'bold')
 		.attr('text-anchor', 'end')
+		.style('cursor', 'pointer')
 		.text(function(d,i){ return d.label})
 		.attr('fill', 'black')
 		.on("mouseover", function (d) {
 			highlight_line = draw_line(d.left_coord, d.right_coord) ;;
 				  d3.select("#tooltip")
 					.style("visibility", "visible")
-					.html('Class: ' + Y1 + '<br/>Gene name: '+ d.label +'<br/>Avg value: ' + d.left)
+					.html('Class: ' + Y1 + '<br/>Gene name: '+ d.label +'<br/>Avg value: ' + d.left + '<br/><br/>Click for full json information')
 					.style("top", function () { return (d3.event.pageY - 100)+"px"})
 					.style("left", function () { return (d3.event.pageX - 100)+"px";})
 				})
 		.on("mouseout", function (d) { 
 			clear_highlight();
 			d3.select("#tooltip").style("visibility", "hidden") 
+		.on('click', function(d) {gene_search_click(d.label, d3.event.pageX, d3.event.pageY);})
 		});
 
 sg.selectAll('.left_values')
@@ -261,6 +263,7 @@ sg.selectAll('.left_values')
 		.attr('text-anchor', 'end')
 		.text(function(d,i){ return d.left})
 		.attr('fill', 'black')
+		
 
 sg.selectAll('.right_labels')
 	.data(data).enter().append('svg:text')
@@ -274,18 +277,21 @@ sg.selectAll('.right_labels')
 		.attr('font-size', 10)
 		.text(function(d,i){ return d.label})
 		.attr('fill', 'black')
+		.style('cursor', 'pointer')
 		.on("mouseover", function (d) {
 					highlight_line = draw_line(d.left_coord, d.right_coord) ;
 				  d3.select("#tooltip")
 					.style("visibility", "visible")
-					.html('Class: ' + Y2 + '<br/>Gene name: '+ d.label +'<br/>Avg value: ' + d.right)
+					.html('Class: ' + Y2 + '<br/>Gene name: '+ d.label +'<br/>Avg value: ' + d.right + '<br/><br/>Click for full json information')
 					.style("top", function () { return (d3.event.pageY - 100)+"px"})
 					.style("left", function () { return (d3.event.pageX - 100)+"px";})
 				})
 		.on("mouseout", function (d) { 
 			clear_highlight();
 			d3.select("#tooltip").style("visibility", "hidden") 
-		});
+		})
+		.on('click', function(d) {gene_search_click(d.label, d3.event.pageX, d3.event.pageY);})
+		;
 
 //
 sg.selectAll('.right_values')

@@ -42,7 +42,7 @@ function gene_search_tooltip(param, x, y) {
 
 
 
-function gene_search_click(param, x, y) {
+function gene_search_click(param) {
 
 	if(param.indexOf('Tumoral') == -1  && param.indexOf('Normal') == -1) {
 		

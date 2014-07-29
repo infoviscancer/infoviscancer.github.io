@@ -20,28 +20,30 @@
 
 <body>
 <div id="tooltip"></div>
+<div id="container_diagram">
 <p style="margin-top:30px;"> For more details see the original WEKA output <a href="doc/tree_J48_stomach" target="_blank">here</a>. <br />
   <br />
   ESM1|11082_calculated <b>&lt;= 0.2558</b><br />
   |&nbsp;&nbsp;&nbsp;&nbsp;RNFT2|84900_calculated <b>&lt;= 0.4895: <font color="#0000FF">Normal</font></b> (34.0/1.0)<br />
   |&nbsp;&nbsp;&nbsp;&nbsp;RNFT2|84900_calculated <b>&gt; 0.4895: <font color="#ff0000">Tumoral</font></b> (5.0)<br />
   ESM1|11082_calculated <b>&gt; 0.2558: <font color="#FF0000">Tumoral</font></b> (232.0) </p>
-<center>
+
   <div id="wrapper">
     <div id="chart"> </div>
   </div>
   <br/>
-</center>
+
 <p  style="width:auto; margin:0px 20px 0px 0px; display:inline-block; float:left; position:relative;">Show/hide rule axis: </p>
 <div id="slider_onoff" style="width:30px; display:inline-block; float:left; position:relative; margin:3px 0px 0px 0px;"></div>
 <div id="slider_text_onoff" style="width:auto; display:inline-block; float:left; position:relative; margin:0px 0px 0px 20px;">ON</div>
-<p id="pearsonX" style="margin:20px 0px 0px 0px;">Pearson correlation with </p>
+<p id="pearsonX" style="margin:20px 0px 0px 0px; cursor: pointer;">Pearson correlation with </p>
 <div id="sliderX" class="slider_XY" >X axis</div>
-<div id="slider_text_x" class="slider_text_xy" ></div>
-<p id="pearsonY" style="margin:25px 0px 0px 0px;">Pearson correlation with </p>
+<div id="slider_text_x" class="slider_text_xy"></div>
+<p id="pearsonY" style="margin:25px 0px 0px 0px; cursor: pointer;">Pearson correlation with </p>
 <div id="sliderY" class="slider_XY">Y axis</div>
 <div id="slider_text_y" class="slider_text_xy"></div>
 <a href="" id="reset" style="width: 400px; display:block; position:relative; float:left;">Reset view</a> 
+</div>
 <script>
 $(function() {
   $("#sliderX").slider({
@@ -81,6 +83,23 @@ $(function() {
 	});
 
 });
+
+function centra(div){
+	var DIVwidth = $(div).width();	
+	//var DIVheight = $(div).height();
+	var SCREENwidth = $(document).width();
+	//var SCREENheight = $(window).height();	
+	//var SCREENscrolltop = $(window).scrollTop();
+	var SCREENscrollleft = $(window).scrollLeft();
+	$(div).animate({   
+		//top: (SCREENheight-DIVheight)/2+SCREENscrolltop+"px",
+		left: (SCREENwidth-DIVwidth)/2+SCREENscrollleft+"px"
+	},100,function(){
+        centra(div);
+    });	 
+	}
+
+  centra('#container_diagram');
 
 
   </script>

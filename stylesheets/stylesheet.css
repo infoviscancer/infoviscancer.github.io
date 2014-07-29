@@ -635,7 +635,9 @@ footer a:hover {
 	display:block;
 	position:relative;  
 	float: left;
+	cursor: pointer;
 	}
+
 	
 .slider_normal {
 	margin-top: 2px;

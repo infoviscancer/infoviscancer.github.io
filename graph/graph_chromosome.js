@@ -26,7 +26,7 @@ var chromosome_color = {
 };
 
 var margin_chr = {top: 30, right: 10, bottom: 10, left: 50},
-    width_chr = 100000 - margin_chr.left - margin_chr.right,
+    width_chr = 20000 - margin_chr.left - margin_chr.right,
     height_chr = 700 - margin_chr.top - margin_chr.bottom;
 	
 var file_csv = "csv/chromosome/genes_rpkm_location_normal_1000.csv";
@@ -100,8 +100,7 @@ d3.csv(file_csv, type, function(error, data) {
 				})
 		.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") })
 		.on('click', function(d) {
-		gene_search_click(d.gene, d3.event.pageX, d3.event.pageY);
-	})
+		gene_search_click(d.gene, d3.event.pageX, d3.event.pageY);})
 	  ;
 	 
 	  

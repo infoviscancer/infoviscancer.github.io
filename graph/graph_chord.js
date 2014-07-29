@@ -94,8 +94,11 @@ var g = svg.selectAll("g.group")
 			.data(chord.groups())
 			.enter().append("svg:g")
 			.attr("class", "group")
-			.on("mouseover", mouseover)
-			.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
+			.style('cursor', 'pointer')
+			.on("mouseover", mouseover) 
+			.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") })
+			.on('click', function(d) {gene_search_click(rdr(d).gname, d3.event.pageX, d3.event.pageY);})
+			;
 			
 			
 var classi = svg.selectAll("g.classi")
@@ -108,9 +111,9 @@ var classi = svg.selectAll("g.classi")
 			.on("mouseover", function (d) {
 				  d3.select("#tooltip")
 					.style("visibility", "visible")
-					.html(class_name[d.index])
-					.style("top", function () { return (d3.event.pageY - 50)+"px"})
-					.style("left", function () { return (d3.event.pageX - 50)+"px";})
+					.html(class_name[d.index]) 
+					.style("top", function () { return (d3.event.pageY - 100)+"px"})
+					.style("left", function () { return (d3.event.pageX - 100)+"px";})
 				})
 			.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
 			
@@ -156,8 +159,8 @@ var chordPaths = svg.selectAll("path.chord")
 				  d3.select("#tooltip")
 					.style("visibility", "visible")
 					.html(chordTip(rdr(d)))
-					.style("top", function () { return (d3.event.pageY - 50)+"px"})
-					.style("left", function () { return (d3.event.pageX - 50)+"px";})
+					.style("top", function () { return (d3.event.pageY - 100)+"px"})
+					.style("left", function () { return (d3.event.pageX - 100)+"px";})
 				})
 				.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
 	
@@ -177,18 +180,15 @@ function groupTicks(d) {
 function chordTip (d) {
 			var p = d3.format(".2%"), q = d3.format(",.3r")
 			return "Chord Info:<br/>"
-			  + p(d.svalue/d.stotal) + " (" + q(d.svalue) + ") of "
-			  + d.sname.split("|")[0] + " prefer " + d.tname.split("|")[0]
-			  + (d.sname === d.tname ? "": ("<br/>while...<br/>"
-			  + p(d.tvalue/d.ttotal) + " (" + q(d.tvalue) + ") of "
-			  + d.tname.split("|")[0] + " prefer " + d.sname.split("|")[0]))
+			  + 'connecting ' + d.sname.split("|")[0] + " with " + d.tname.split("|")[0]
 }
 
 function groupTip (d) {
 			var p = d3.format(".1%"), q = d3.format(",.3r")
 			return "Group Info:<br/>"
 				+ d.gname.split("|")[0] + " : " + q(d.gvalue) + "<br/>"
-				+ p(d.gvalue/d.mtotal) + " of Matrix Total (" + q(d.mtotal) + ")"
+				+ p(d.gvalue/d.mtotal) + " of Matrix Total (" + q(d.mtotal) + ")" 
+				+ '<br/><br/>Click for full json information.'
 }
 
 
@@ -213,8 +213,8 @@ function fade(opacity) {
 			d3.select("#tooltip")
 			  .style("visibility", "visible")
 			  .html(groupTip(rdr(d)))
-			  .style("top", function () { return (d3.event.pageY - 50)+"px"})
-			  .style("left", function () { return (d3.event.pageX - 50)+"px";})
+			  .style("top", function () { return (d3.event.pageY - 100)+"px"})
+			  .style("left", function () { return (d3.event.pageX - 100)+"px";})
 
 			chordPaths.classed("fade", function(p) {
 			  return p.source.index != i

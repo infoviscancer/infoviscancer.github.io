@@ -50,15 +50,17 @@ function draw(json, num_classe) {
   node.append("circle")
       	.attr("r", function(d) { return d.r; })
       	.style("fill", function(d) {return fill_class(num_classe); })
+		.style('cursor', 'pointer')
 		.style("stroke", function(d) { return d3.rgb(fill_class(num_classe)).darker(); })
 	  	.on("mouseover", function (d) {
 				  d3.select("#tooltip")
-					.style("visibility", "visible")
-					.html('Gene name: '+ d.className +'<br/>Avg value: ' + d.value)
+					.style("visibility", "visible") 
+					.html('Gene name: '+ d.className +'<br/>Avg value: ' + d.value + '<br/><br/>Click for full json information')
 					.style("top", function () { return (d3.event.pageY - 100)+"px"})
 					.style("left", function () { return (d3.event.pageX - 100)+"px";})
 				})
-		.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
+		.on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") })
+		.on('click', function(d) {gene_search_click(d.className, d3.event.pageX, d3.event.pageY);})
 	  ;
 
   node.append("text")

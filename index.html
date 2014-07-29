@@ -45,7 +45,7 @@
         [<a href="doc/TCGA-B7-5816-01A-21R-1602-13.gene.quantification.txt" target="_blank">Example file  gene.quantification.txt</a>] <br/>
         <br/>
         Tutti i nomi dei file presenti nei dataset si uniformano ad un particolare standard (barcode); è stato quindi possibile estrarre da essi il codice identificativo del paziente e la codifica della classe di appartenenza.<br/>
-        La figura che segue mostra il barcode per la nomenclatura dei file. <br/>
+        La figura che segue mostra il barcode per la nomenclatura dei file. <br/><br/>
         <center>
           <img src="images/tcga4.jpg" width="664"> <font style="font-style:italic; font-size:12px;">Figura 4: barcode </font>
         </center>
@@ -70,7 +70,7 @@
       <br/>
       <p> Per estrarre le informazioni di interesse si è proceduto alla creazione di un Job Map-Reduce utilizzando  il framework Apache Hadoop.<br/>
       <ul>
-        <li> <b>Fase di Map</b><br/>
+        <li> <b>Fase di Map</b><br/><br/>
           Nella fase di Map, a partire dal nome del file di ogni paziente, vengono estratti il Participant, il Sample e il Vial che, insieme, andranno a costituire le “key” del mapper.<br/>
           Per ogni file vengono inoltre estratti i nomi dei geni e il valore del RPKM ad essi associato che, combinati insieme attraverso un separatore (il carattere “$”), andranno a rappresentare i “value” del mapper.<br/>
           Da questa prima fase si ottengono quindi coppie chiave – valore del tipo:<br/>
@@ -80,12 +80,12 @@
           </center>
         </li>
         <br/>
-        <li> <b>Fase di Reduce</b><br/>
+        <li> <b>Fase di Reduce</b><br/><br/>
           La fase di Reduce prende in input l’output del mapper raggruppato per chiave, ovvero coppie chiave-valore nelle quali la chiave è costituita dalla stringa Participant(sampleVial) e il valore è una lista di gene$RPKM associati alla chiave.<br/>
           In questa fase inoltre viene stabilita la forma che avrà l’output del job sia nel File-System di Hadoop che in un file con estensione csv. </li>
         <br/>
-        <li> <b>Output generato</b><br/>
-          E’ stato previsto un solo tipo di output in forma matriciale contenente il nome dei geni sulle colonne e l’identificativo dei partecipanti nelle righe. <br/>
+        <li> <b>Output generato</b><br/><br/>
+          E’ stato previsto un solo tipo di output in forma matriciale contenente il nome dei geni sulle colonne e l’identificativo dei partecipanti nelle righe. <br/><br/>
           <center>
             <img src="images/tcga5.jpg" width="664"> <font style="font-style:italic; font-size:12px;">Figura 5: output-matrice originale </font>
           </center>
@@ -100,7 +100,7 @@
           </ul>
           Gli attributi CLASS e CLASS ID sono stati introdotti nelle matrici ai fini dell’analisi dei dati. Il CLASS ID, come accennato, è costituito dal Sample e dalla relativa codifica (Es: Tumoral (01A)) e viene preso in considerazione per analisi di maggior dettaglio. L’attributo CLASS invece è una forma di ridondanza della codifica del Sample ed è stato introdotto per generalizzare il campo di analisi. </li>
         <br/>
-        <li> <b>Dettagli di sviluppo</b><br/>
+        <li> <b>Dettagli di sviluppo</b><br/><br/>
           Come precedentemente accennato, la generazione dell’output sul file csv, avviene direttamente nella fase di Reduce, andando ad inserire l’intestazione della matrice (“intestazione”) e i relativi dati (“stringa”).
           La figura 6 mostra la porzione di codice per la creazione dell’output. <br/>
           <br/>

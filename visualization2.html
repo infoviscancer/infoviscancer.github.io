@@ -14,12 +14,13 @@
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="graph/graph_bubble.js"></script>
+<script src="js/gene_search.js"></script>
 </head>
 
 <body>
 <div id="tooltip"></div>
 
-<div id="container_diagram">
+<div id="container_diagram" style="overflow-x:hidden;">
   <p id="loading" style="color:#444444; font-size:18px; margin-top:300px;">Loading...</p>
   <div id="diagram"> 
     <script>draw('csv/bubble/normal_gene_avg_10.json',0);</script> 

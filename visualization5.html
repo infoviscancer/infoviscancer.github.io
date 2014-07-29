@@ -22,18 +22,19 @@
 
 <body>
 <div id="tooltip"></div>
+<div id="container_diagram">
 <p> For more details see the original WEKA output <a href="doc/cross_validation_rule_output" target="_blank">here</a>.<br/>
   <br/>
   Cross-validation fold change </p>
-<div id="sliderCV" class="slider_normal"></div>
+<div id="sliderCV" class="slider_normal" style="margin-top:-30px;"></div>
 <div id="slider_text_cv" class="slider_text_xy"></div>
 <p id="weka_rule" style="margin-top:20px;"></p>
-<center>
+
   <div id="wrapper_tree" style="position:relative; display:block; float:left; width:690px;"> 
     <script src="graph/graph_tree.js"></script> 
     <script>drawTree(0);</script> 
   </div>
-</center>
+</div>
 <script>
 $(function() {
 
@@ -52,6 +53,22 @@ $(function() {
 	});
 });
 
+	function centra(div){
+	var DIVwidth = $(div).width();	
+	//var DIVheight = $(div).height();
+	var SCREENwidth = $(document).width();
+	//var SCREENheight = $(window).height();	
+	//var SCREENscrolltop = $(window).scrollTop();
+	var SCREENscrollleft = $(window).scrollLeft();
+	$(div).animate({   
+		//top: (SCREENheight-DIVheight)/2+SCREENscrolltop+"px",
+		left: (SCREENwidth-DIVwidth)/2+SCREENscrollleft+"px"
+	},100,function(){
+        centra(div);
+    });	 
+	}
+
+  centra('#container_diagram');
 
   </script>
 </body>

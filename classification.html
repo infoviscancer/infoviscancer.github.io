@@ -51,18 +51,47 @@
 
           <h3><a name="anchor1" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #1</a></h3>
           <a href="visualization5.html" target="_blank" class="fullscreen_button"></a>
+          <br /><br /><br />
+          <p>
+          Questo diagramma mostra per ogni folds della Cross-Validation (nel nostro caso 10 folds) il relativo albero di classificazione calcolato, sia in forma testuale che grafica.
+          </p>
             
-            <iframe class="standard_iframe" src="visualization5.html"  onload='javascript:resizeIframe(this, 50);'>
+            <iframe class="standard_iframe" src="visualization5.html" style="margin-top:-20px;" onload='javascript:resizeIframe(this, 50);'>
   			This is an iframe. If you see this, upgrade your browser version!
 			</iframe>
+            <br />
+            <p>
+            Passando il mouse sopra un nodo non foglia dell’albero vengono mostrate le seguenti informazioni aggiuntive ricavate dal sito <a href="http://rest.genenames.org" target="_blank">http://rest.genenames.org </a> tramite interrogazione automatica:
+            <br />
+            <ul>
+<li><b>Symbol</b>: simbolo ufficiale del gene approvato dall’ HGNC, si tratta di una forma abbreviata del nome del gene. I simboli sono approvati in conformità alle linee guida per la nomenclatura del gene umano;</li><br/>
+<li><b>Hgnc_id</b>: identificativo univoco del gene per l’ HGNC;</li><br/>
+<li><b>Name</b>: il nome del gene completo approvato dall’ HGNC;</li><br/>
+<li><b>Locus type</b>: classe genetica di apparteneza del gene;</li><br/>
+<li><b>Alias symbol</b>: simboli e nomi alternativi che sono stati utilizzati per riferirsi al gene. I sinonimi possono essere dati dalla letteratura, da altri database o possono essere aggiunti per rappresentare l'appartenenza ad una famiglia genica.</li><br/>
+<li><b>Location</b>: indica la posizione citogenetica del gene o della regione sul cromosoma.
+</ul>
+Inoltre cliccando sul nome di un gene è possibile scaricare l'intero set di informazioni in formato json.<br />
+Per mezzo di uno slider è possibile passare da un albero di classificazione ad un altro.<br/><br/>
+Per l'input di questa visualizzazione sono state prese in considerazioni le varie regole di output, riscritte in formato json al fine di essere visualizzate come albero attraverso la librearia d3js.
+            </p><br /><br />
+            
             <a href="#anchor0">Back on top.</a>
-            
             <h3><a name="anchor2" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #2</a></h3>
-            <a href="visualization6.html" target="_blank" class="fullscreen_button"></a>
+            <a href="visualization6.html" target="_blank" class="fullscreen_button"></a><br/><br /><br />
+            <p>
+            asd
+            </p>
             
-            <iframe class="standard_iframe" src="visualization6.html"  onload='javascript:resizeIframe(this, 700);'>
+            <iframe class="standard_iframe" src="visualization6.html" style="height:1070px; margin-top:-40px;" >
   			This is an iframe. If you see this, upgrade your browser version!
 			</iframe>
+            <br/>
+            <p>
+            asd
+            </p><br />
+            
+            
             <a href="#anchor0">Back on top.</a>
    
       

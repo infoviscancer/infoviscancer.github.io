@@ -398,11 +398,15 @@ chart.append("g")
 	  if(disabled == false) {
 	  document.getElementById('slider_text_x').innerHTML = xAxis;
 	  document.getElementById('slider_text_y').innerHTML = yAxis;
+	  document.getElementById('slider_text_x').onclick = function() {gene_search_click(xAxis);}
+	  document.getElementById('slider_text_y').onclick = function() {gene_search_click(yAxis); }
 	  
 	  document.getElementById('pearsonX').innerHTML = 'Pearson correlation with <font style="font-weight:bold;">'  + ruleXAxis +
 	   '</font>: <font style="font-weight:bold;  color:#A52A2A;">' + pearsonCorrelationX[xAxis] + '</font>';
+	   document.getElementById('pearsonX').onclick = function() {gene_search_click(ruleXAxis);}
 	  document.getElementById('pearsonY').innerHTML = 'Pearson correlation with <font style="font-weight:bold;">'  + ruleYAxis +
 	   '</font>: <font style="font-weight:bold;  color:#A52A2A;">' + pearsonCorrelationY[yAxis] + '</font>';
+	   document.getElementById('pearsonY').onclick = function() {gene_search_click(ruleYAxis);}
 	  }
   } //FINE FUNZIONE
 
