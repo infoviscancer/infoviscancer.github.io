@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="icon" href="images/favicon.png" />
 <title>Stomach cancer gene visualization</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link type="text/css" rel="stylesheet" href="stylesheets/graph_style.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
@@ -68,7 +68,7 @@
       <p>Il diagramma mostra l'interazione tra geni normali e tumorali ordinati in ordine decrescente dell’ RPKM medio, ovvero il valore medio del gene calcolato su tutte le istanze. </p>
       <iframe class="standard_iframe" src="visualization3.html" style="margin-top:-20px;" onload='javascript:resizeIframe(this,0);'> This is an iframe. If you see this, upgrade your browser version! </iframe>
       <br/>
-      <p>Questo diagramma mostra chiaramente se un gene in una classe possiede il corrispondente nell’altra classe e la sua posizione relativa nella scala discendente. Se un gene non ha corrispondenza nei primi N geni dell'altra classe sarà comunque presente con valore medio nullo (“0”) nella classe in cui non è contenuto.<br />
+      <p>Questo diagramma mostra in modo esplicito la corrispondenza tra i primi N geni (dove N è selezionabile tramite uno slider) della classe Normal e i primi N geni della classe Tumoral in una scala discendente del valore medio di RPKM. Se un gene non trova corrispondenza nei primi N geni dell’altra classe viene comunque visualizzato con valore medio pari a zero nella classe in cui non ha trovato corrispondenza.<br />
         Passando il mouse sopra il nome del gene la linea che collega il gene con il suo corrispondente sarà evidenziata in rosso e verrà visualizzato il nome e il valore medio del gene selezionato. <br />
         Passando il mouse sopra una riga questa verrà evidenziata in rosso e verranno illustrati sia i valori medi della classe normal che della classe tumoral. <br />
         Per mezzo di due sliders si è ottenuta rispettivamente la possibilità di impostare la dimensione della lista ordinata di geni (10, 50 o 100) e di ingrandire il diagramma per una più agevole consultazione.<br />
@@ -103,7 +103,18 @@ Tramite il menù in alto è possibile effettuare le operazioni:<br /><br />
 <br/>
 E’ inoltre presente una legenda che permette, in base al colore, di comprendere a quale cromosoma appartenga un determinato gene. Per mezzo di un click su di un cromosoma è possibile applicare un filtro alla visualizzazione andando a mostrare solo i geni relativi al cromosoma in questione.
 <br /><br />
-Per realizzare questa visualizzazione è stato necessario scrivere un programma Java al fine di arricchire i dati di output del clustering di Weka con il valore del cromosoma e dello specifico locus a cui ogni gene appartiene.
+Per realizzare questa visualizzazione è stato necessario scrivere un programma Java al fine di arricchire i dati di output del clustering di Weka con il valore del cromosoma e dello specifico locus a cui ogni gene appartiene.<br/>
+Quindi i dati di input sono costituiti da 4 files, uno per ciascuna delle 4 differenti modalità di visualizzazione selezionabili dal menù. Ogni file è composto da: <br /><br />
+<ul>
+<li>nome del gene</li>
+<li>valore di RPKM medio</li>
+<li>cromosoma di appartenenza</li>
+<li>posizione citogenetica del gene (regione sul cromosoma)</li>
+<li>locus di appartenenza all’interno del cromosoma</li>
+</ul>
+I geni sono elencati in ordine decrescente del valore di RPKM medio.<br/>
+Per rendere più veloce l’utilizzo del filtro in base ai cromosomi sono stati creati, attraverso un’applicazione java appositamente sviluppata, un numero di file csv pari al numero dei cromosomi. Ogni file contiene esclusivamente geni relativi ad un determinato cromosoma.
+
 
       </p>
       <br/><br/>

@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="icon" href="images/favicon.png" />
 <title>Stomach cancer gene visualization</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link type="text/css" rel="stylesheet" href="stylesheets/graph_style.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
@@ -80,7 +79,7 @@ Per l'input di questa visualizzazione sono state prese in considerazioni le vari
             <h3><a name="anchor2" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #2</a></h3>
             <a href="visualization6.html" target="_blank" class="fullscreen_button"></a><br/><br /><br />
             <p>
-            asd
+            Il grafico mostra la distribuzione dei pazienti in funzione del valore di RPKM dei geni coinvolti nell’albero di classificazione calcolato con WEKA attraverso l’algoritmo J48.
             </p>
             
             <iframe class="standard_iframe" src="visualization6.html" style="height:1070px; margin-top:-40px;" >
@@ -88,7 +87,20 @@ Per l'input di questa visualizzazione sono state prese in considerazioni le vari
 			</iframe>
             <br/>
             <p>
-            asd
+            Il grafico mostra l’output prodotto dalla classificazione, in esso compaiono solo due geni che vengono utilizzati per distinguere i pazienti nelle classi Tumoral e Normal. I due geni sono presi come riferimento e vanno a costituire gli assi del diagramma, su di questi viene riportato il valore di RPKM.  <br />
+Ogni paziente viene quindi collocato sul grafico in base al valore di RPKM assunto dai geni presi come riferimento dall’algoritmo e colorato in rosso se appartenente alla classe Tumoral o in blu se appartenente alla classe Normal.<br />
+Gli assi visualizzati con una linea più marcata rappresentano i limiti calcolati dall’algoritmo per classificare le istanze in Normal e Tumoral. Ad esempio la linea orizzontale (y=0,2558) indica che tutti i pazienti con un valore di RPKM superiore a 0,2558 per il gene “ESM1|11082_calculated” appartengono sicuramente alla classe Tumoral; mentre quelli con un valore inferiore appartengono alla classe Normal solo se l’RPKM del gene “RNFT2|84900_calculated” è minore o uguale a 0.4895 (a sinistra della linea verticale x=0,4895) altrimenti appartengono alla classe Tumoral.<br />
+Passando il mouse sopra un punto (un paziente) vengono mostrate informazioni aggiuntive relative a:<br />
+<ul>
+<li>identificativo del paziente</li>
+<li>classe di appartenenza</li>
+<li>valori di RPKM dei due geni presi come riferimento dall’algoritmo</li>
+</ul>
+<br />
+Selezionando con il mouse una porzione del grafico è possibile inoltre effettuare uno zoom.<br />
+Infine attraverso l’uso di due sliders, uno per l’asse x e l’altro per l’asse y, è possibile modificare i geni di riferimento. La modifica avviene visualizzando il gene con valore di correlazione di Pearson più alta verso il gene di riferimento considerato dall’algoritmo.<br />
+Inoltre cliccando sul nome dei geni, visualizzati sopra e al lato degli sliders, è possibile scaricare l'intero set di informazioni in formato json ricavate dal sito <a href="http://rest.genenames.org" target="_blank">http://rest.genenames.org</a>.<br /><br />
+I dati di input sono costituiti dalla matrice ottenuta a seguito dell’esecuzione del job di Map-Reduce (vedi <a href="index.html#anchor3" target="_blank">QUI</a>), seguito dalla selezione dei geni presi in considerazione.
             </p><br />
             
             
