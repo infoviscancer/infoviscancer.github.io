@@ -39,7 +39,7 @@
       <a href="visualization1.html" target="_blank" class="fullscreen_button"></a> <br/>
       <br/>
       <br/>
-      <p>Il diagramma mostra l'interazione tra geni normali e tumorali ordinati in ordine decrescente dell’ RPKM medio, ovvero il valore medio del gene calcolato su tutte le istanze.<br/>
+      <p>Il diagramma mostra l'interazione tra geni normali e tumorali ordinati in ordine decrescente dell’output del clustering.<br/>
         Le classi Tumoral e Normal sono distinte in base al colore dei semicerchi che limitano il grafico, rispettivamente nero per i primi e bianco per i secondi. </p>
       <iframe class="standard_iframe" src="visualization1.html"  style="margin-top:-40px; height:700px;"> This is an iframe. If you see this, upgrade your browser version! </iframe>
       <br/>
@@ -52,53 +52,53 @@
       <a href="visualization2.html" target="_blank" class="fullscreen_button"></a> <br/>
       <br/>
       <br/>
-      <p>Questo diagramma mostra, per ogni gene, i valori medi dell’ RPKM . La visualizzazione segue una struttura a spirale collocando il gene con valore medio più alto al centro del diagramma. <br/>
-        Il valore medio dell’RPKM di ogni gene è proporzionale alla superficie della bolla. </p>
+      <p>Questo diagramma mostra, per ogni gene, il valore dell’output dell’operazione di clustering. La visualizzazione segue una struttura a spirale collocando il gene con valore medio più alto al centro del diagramma. <br/>
+        Il valore di ogni gene è proporzionale alla superficie della bolla. </p>
       <iframe class="standard_iframe" src="visualization2.html"    style="margin-top:-40px; height:650px;"> This is an iframe. If you see this, upgrade your browser version! </iframe>
       <br/>
-      <p> Passando il mouse sopra una bolla, viene mostrato il nome del gene e il valore medio dell’RPKM.<br/>
+      <p>Passando il mouse sopra una bolla vengono mostrate le informazioni relative al gene selezionato.<br/>
         Per mezzo di due sliders è possibile modificare rispettivamente il numero di geni visualizzati (10, 20, 30, 40, 50, 60, 70, 80, 90, 100) e la classe (Normal o Tumoral).<br/>
         <br/>
-        I dati di input sono costituiti da 10 file json per la classe Normal e altrettanti per la classe Tumoral ciascuno contenente i nomi dei geni da visualizzare e il relativo valore di RPKM medio ordinati in ordine descrescente. </p>
+        I dati di input sono costituiti da 10 file json per la classe Normal e altrettanti per la classe Tumoral ciascuno contenente i nomi dei geni da visualizzare e il relativo valore di output del clustering ordinati in ordine decrescente. </p>
       <a href="#anchor0">Back on top.</a> 
       <h3><a name="anchor3" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #3</a></h3>
       <a href="visualization3.html" target="_blank" class="fullscreen_button"></a> <br />
       <br />
       <br />
-      <p>Il diagramma mostra l'interazione tra geni normali e tumorali ordinati in ordine decrescente dell’ RPKM medio, ovvero il valore medio del gene calcolato su tutte le istanze. </p>
+      <p>Il diagramma mostra l'interazione tra geni normali e tumorali ordinati in ordine decrescente dell’output del clustering. </p>
       <iframe class="standard_iframe" src="visualization3.html" style="margin-top:-20px;" onload='javascript:resizeIframe(this,0);'> This is an iframe. If you see this, upgrade your browser version! </iframe>
       <br/>
-      <p>Questo diagramma mostra in modo esplicito la corrispondenza tra i primi N geni (dove N è selezionabile tramite uno slider) della classe Normal e i primi N geni della classe Tumoral in una scala discendente del valore medio di RPKM. Se un gene non trova corrispondenza nei primi N geni dell’altra classe viene comunque visualizzato con valore medio pari a zero nella classe in cui non ha trovato corrispondenza.<br />
-        Passando il mouse sopra il nome del gene la linea che collega il gene con il suo corrispondente sarà evidenziata in rosso e verrà visualizzato il nome e il valore medio del gene selezionato. <br />
+      <p>Questo diagramma mostra in modo esplicito la corrispondenza tra i primi N geni (dove N è selezionabile tramite uno slider) della classe Normal e i primi N geni della classe Tumoral in una scala discendente. Se un gene non trova corrispondenza nei primi N geni dell’altra classe viene comunque visualizzato con valore medio pari a zero nella classe in cui non ha trovato corrispondenza.<br />
+        Passando il mouse sopra il nome del gene la linea che collega quest’ultimo con il suo corrispondente viene evidenziata in rosso e appare la classe a cui appartiene, il nome del gene e il valore associato dall’output del clustering. <br />
         Passando il mouse sopra una riga questa verrà evidenziata in rosso e verranno illustrati sia i valori medi della classe normal che della classe tumoral. <br />
         Per mezzo di due sliders si è ottenuta rispettivamente la possibilità di impostare la dimensione della lista ordinata di geni (10, 50 o 100) e di ingrandire il diagramma per una più agevole consultazione.<br />
         <br />
-        I dati di input sono costituiti da tre file json, uno per ciascun numero di geni da visualizzare (10, 50 o 100). Ogni file è composto dai nomi dei primi N geni con RPKM medio più alto seguiti dal relativo valore, sia per la classe Normal che per la classe Tumoral. </p>
+        I dati di input sono costituiti da 3 files json, uno per ciascun numero (10, 50 o 100) di geni da visualizzare. Ogni file è composto dai nomi dei primi N geni con valore di output del clustering  più alto seguiti dal relativo valore, sia per la classe Normal che per la classe Tumoral. </p>
       <a href="#anchor0">Back on top.</a>
       <h3><a name="anchor4" class="anchor"><img src="images/img_chapter.png" class="img_chapter"/>Visualizzazione #4</a></h3>
       <a href="visualization4.html" target="_blank" class="fullscreen_button"></a><br /><br /><br />
       
       <p>
-      Il diagramma a barre mostra, per ogni gene, la differenza di RPKM medio tra la classe Normal (asse y superiore) e la classe Tumoral (asse y inferiore) evidenziando l’appartenenza gene-cromosoma attraverso una gamma di colori.
+      Il diagramma a barre mostra, per ogni gene, la differenza del valore di output del clustering  tra la classe Normal (asse y superiore) e la classe Tumoral (asse y inferiore) evidenziando l’appartenenza gene-cromosoma attraverso una gamma di colori.
       </p>
       
       <iframe class="standard_iframe" src="visualization4.html" style="margin-top:-20px;"  onload='javascript:resizeIframe(this,40);'> This is an iframe. If you see this, upgrade your browser version! </iframe>
       <br /><br />
       <p>
      Per mezzo di due sliders, uno orizzontale e uno verticale, è possibile effettuare rispettivamente uno zoom sull’asse delle ascisse o sull’asse delle ordinate.<br/>
-     Passando il mouse sopra una barra vengono mostrate le seguenti informazioni aggiuntive ricavate dal sito <a href="http://rest.genenames.org" target="_blank">http://rest.genenames.org</a> tramite interrogazione automatica:
+     Passando il mouse sopra una barra vengono mostrate le seguenti informazioni aggiuntive, alcune ricavate dal sito <a href="http://rest.genenames.org" target="_blank">http://rest.genenames.org</a> tramite interrogazione automatica:
      <ul>
 <li><b>Gene name</b>: nome del gene;</li>
-<li><b>Avg RPKM value</b>: valore medio del RPKM del gene;</li>
+<li><b>Avg RPKM value</b>: valore dell’output del clustering;</li>
 <li><b>Chromosome</b>: cromosoma del gene;</li>
 <li><b>Locus</b>: posizione del gene all’interno del cromosoma.</li>
 </ul><br/>
 Tramite il menù in alto è possibile effettuare le operazioni:<br /><br />
 <ul>
-<li><b>NORMAL 1000 AVG DESCENDANT</b>: ordinare in modo decrescente l’RPKM dei primi 1000 geni appartenenti alla classe Normal; </li>
-<li><b>TUMORAL 1000 AVG DESCENDANT</b>: ordinare in modo decrescente l’RPKM dei primi 1000 geni appartenenti alla classe Tumoral;</li>
-<li><b>NORMAL FULL AVG DESCENDANT</b>: ordinare in modo decrescente l’RPKM di tutti i geni appartenenti alla classe Normal;</li>
-<li><b>TUMORAL FULL AVG DESCENDANT</b>: ordinare in modo decrescente l’RPKM di tutti i geni appartenenti alla classe Tumoral.</li>
+<li><b>NORMAL 1000 AVG DESCENDANT</b>: ordinare in modo decrescente il valore di output del clustering dei primi 1000 geni appartenenti alla classe Normal; </li>
+<li><b>TUMORAL 1000 AVG DESCENDANT</b>: ordinare in modo decrescente il valore di output del clustering dei primi 1000 geni appartenenti alla classe Tumoral;</li>
+<li><b>NORMAL FULL AVG DESCENDANT</b>: ordinare in modo decrescente il valore di output del clustering di tutti i geni appartenenti alla classe Normal;</li>
+<li><b>TUMORAL FULL AVG DESCENDANT</b>: ordinare in modo decrescente il valore di output del clustering di tutti i geni appartenenti alla classe Tumoral.</li>
 </ul>
 <br/>
 E’ inoltre presente una legenda che permette, in base al colore, di comprendere a quale cromosoma appartenga un determinato gene. Per mezzo di un click su di un cromosoma è possibile applicare un filtro alla visualizzazione andando a mostrare solo i geni relativi al cromosoma in questione.
@@ -107,12 +107,13 @@ Per realizzare questa visualizzazione è stato necessario scrivere un programma 
 Quindi i dati di input sono costituiti da 4 files, uno per ciascuna delle 4 differenti modalità di visualizzazione selezionabili dal menù. Ogni file è composto da: <br /><br />
 <ul>
 <li>nome del gene</li>
-<li>valore di RPKM medio</li>
+<li>valore dell’output del clustering normal</li>
+<li>valore dell’output del clustering tumoral</li>
 <li>cromosoma di appartenenza</li>
 <li>posizione citogenetica del gene (regione sul cromosoma)</li>
 <li>locus di appartenenza all’interno del cromosoma</li>
 </ul>
-I geni sono elencati in ordine decrescente del valore di RPKM medio.<br/>
+I geni sono elencati in ordine decrescente del valore di output del clustering.<br/>
 Per rendere più veloce l’utilizzo del filtro in base ai cromosomi sono stati creati, attraverso un’applicazione java appositamente sviluppata, un numero di file csv pari al numero dei cromosomi. Ogni file contiene esclusivamente geni relativi ad un determinato cromosoma.
 
 

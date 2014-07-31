@@ -99,6 +99,7 @@ Passando il mouse sopra un punto (un paziente) vengono mostrate informazioni agg
 <br />
 Selezionando con il mouse una porzione del grafico è possibile inoltre effettuare uno zoom.<br />
 Infine attraverso l’uso di due sliders, uno per l’asse x e l’altro per l’asse y, è possibile modificare i geni di riferimento. La modifica avviene visualizzando il gene con valore di correlazione di Pearson più alta verso il gene di riferimento considerato dall’algoritmo.<br />
+La correlazione di Pearson è stata calcolata attraverso il software “MALA”, immettendo come input una versione modificata della matrice inversa dell’originale (avuta come output dal processo di map-reduce) e selezionando i due geni della regola presa in esame. Sono stati poi estratti i primi 10 geni in ordine decrescente di valore di correlazione.<br />
 Inoltre cliccando sul nome dei geni, visualizzati sopra e al lato degli sliders, è possibile scaricare l'intero set di informazioni in formato json ricavate dal sito <a href="http://rest.genenames.org" target="_blank">http://rest.genenames.org</a>.<br /><br />
 I dati di input sono costituiti dalla matrice ottenuta a seguito dell’esecuzione del job di Map-Reduce (vedi <a href="index.html#anchor3" target="_blank">QUI</a>), seguito dalla selezione dei geni presi in considerazione.
             </p><br />
